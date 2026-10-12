@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087be8">
+  <meta name="description" content="HC MONT - administracija termina">
+  <title>HC MONT | Admin panel</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="HC MONT početna">
+      <span class="logo">❄</span>
+      <span class="brand-copy">HC MONT<small>ADMIN PANEL</small></span>
+    </a>
+    <button id="logoutBtn" class="button logout hidden" type="button">Odjavi se</button>
+  </header>
+
+  <main class="container">
+    <section id="loginSection" class="login-wrap">
+      <div class="login-card">
+        <div class="lock" aria-hidden="true">🔐</div>
+        <p class="eyebrow">HC MONT · ZA ZAPOSLENE</p>
+        <h1>Prijava</h1>
+        <p class="muted">Prijavite se da biste upravljali terminima.</p>
+        <form id="loginForm">
+          <label for="loginEmail">Imejl adresa</label>
+          <input id="loginEmail" type="email" autocomplete="username" placeholder="Imejl poslodavca" required>
+          <label for="loginPassword">Lozinka</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Lozinka" required>
+          <button id="loginBtn" class="button primary full" type="submit">Prijavi se</button>
+          <p id="loginMessage" class="message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">PREGLED SERVISA</p>
+          <h1>Zakazani termini</h1>
+          <p class="muted">Pregledajte zahteve, menjajte statuse i obaveštavajte klijente imejlom.</p>
+        </div>
+        <button id="refreshBtn" class="button secondary" type="button">↻ Osveži</button>
+      </div>
+
+      <div class="stats">
+        <article class="stat"><span>Na čekanju</span><strong id="pendingCount">0</strong></article>
+        <article class="stat"><span>Potvrđeni</span><strong id="confirmedCount">0</strong></article>
+        <article class="stat"><span>Završeni</span><strong id="finishedCount">0</strong></article>
+        <article class="stat"><span>Odbijeni</span><strong id="rejectedCount">0</strong></article>
+      </div>
+
+      <div class="toolbar">
+        <div class="filter">
+          <label for="statusFilter">Prikaži:</label>
+          <select id="statusFilter">
+            <option value="svi">Svi termini</option>
+            <option value="Na čekanju">Na čekanju</option>
+            <option value="Potvrđen">Potvrđeni</option>
+            <option value="Završen">Završeni</option>
+            <option value="Odbijen">Odbijeni</option>
+          </select>
+        </div>
+        <p id="dashboardMessage" class="message" role="status" aria-live="polite"></p>
+      </div>
+
+      <div id="appointments" class="appointments">
+        <div class="empty">Učitavanje termina...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> HC MONT</footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
