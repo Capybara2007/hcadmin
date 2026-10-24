@@ -4,7 +4,7 @@
 const SUPABASE_URL = "https://iijebacrroyhazwclgtg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_WME-nAIH0HpaEzmziyJVGw_qmnU4XVs";
 const ADMIN_EMAIL = "adminhcmont@gmail.com";
-const EMAIL_FUNCTION = "posalji-email";
+const EMAIL_FUNCTION = "smooth-processor";
 
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const $ = (id) => document.getElementById(id);
